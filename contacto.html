@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatea con Dios - Contacto</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="topbar">
+      <span>UNA MARCA HECHA PARA BENDECIR</span>
+      <span>CONTAR EL AMOR DE DIOS EN UNA PRENDA DE VESTIR</span>
+      <div class="social-top">F W I</div>
+    </div>
+    <div class="main-header">
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Logo">
+      </a>
+      <button class="btn-hamburger" id="btnHamburger">☰</button>
+      <nav class="nav-menu" id="navMenu">
+        <ul>
+          <li><a href="nuevo.html">NUEVO</a></li>
+          <li><a href="productos.html">PRODUCTOS</a></li>
+          <li><a href="acercadechatea.html">ACERCA DE CHATEA</a></li>
+          <li><a href="contacto.html">CONTACTO</a></li>
+          <li><a href="sale.html" class="text-red">SALE%</a></li>
+        </ul>
+      </nav>
+      <div class="header-icons">
+        <span>🔍</span>
+        <span>👤</span>
+        <span>🛒 0</span>
+      </div>
+    </div>
+    <div class="submenu">
+      <ul class="submenu-list">
+        <li class="active">CONTACTO</li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="paper-container">
+      <div class="contact-layout">
+        <div class="contact-graphic">
+          <!-- Espacio para la ilustración del aerosol de agua -->
+          <img src="aerosol.png" alt="Aerosol Graphic" style="opacity: 0.1;">
+        </div>
+        
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="correo">Correo Electrónico</label>
+            <input type="email" id="correo" name="correo" required>
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono (opcional)</label>
+            <input type="tel" id="telefono" name="telefono">
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje (opcional)</label>
+            <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Enviar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-info">
+      <span>📞 314 408 06 56</span>
+      <span>📷 @chateacondios</span>
+      <span>✉️ cross.edificando@gmail.com</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

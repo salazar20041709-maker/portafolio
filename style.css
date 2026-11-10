@@ -1,0 +1,405 @@
+/* =========================================
+   VARIABLES GLOBALES Y RESET
+   ========================================= */
+:root {
+  --color-amarillo: #ffd700;
+  --color-negro: #000000;
+  --color-rojo: #e41613;
+  --color-gris: #777777;
+  --color-gris-claro: #c4c4c4;
+  --color-blanco: #ffffff;
+  --color-verde: #10af45;
+  --font-bold: 'Helvetica LT Pro Bold', Helvetica, Arial, sans-serif;
+  --font-regular: 'Myriad Pro', Helvetica, Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-regular);
+  background-color: var(--color-gris-claro); /* Fondo base */
+  color: var(--color-negro);
+  line-height: 1.5;
+  /* Simulación del fondo de ladrillos genérico para el body */
+  background-image: url('brick-bg.jpg'); 
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-bold);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================================
+   NAVEGACIÓN Y HEADER
+   ========================================= */
+.topbar {
+  background-color: var(--color-negro);
+  color: var(--color-blanco);
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.main-header {
+  background-color: var(--color-amarillo);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.nav-menu {
+  display: none; /* Oculto en móvil por defecto */
+  flex-direction: column;
+  background-color: var(--color-amarillo);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 1rem 0;
+  z-index: 100;
+  text-align: center;
+  font-family: var(--font-bold);
+  font-size: 1.2rem;
+}
+
+.nav-menu.active {
+  display: flex;
+}
+
+.nav-menu li {
+  margin: 0.5rem 0;
+}
+
+.nav-menu a:hover {
+  text-decoration: underline;
+}
+
+.text-red {
+  color: var(--color-rojo);
+}
+
+.header-icons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  background-color: var(--color-negro); /* Placeholder para iconos SVG/PNG */
+  mask-size: cover;
+  -webkit-mask-size: cover;
+}
+
+.btn-hamburger {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: block;
+}
+
+/* Submenú de categorías */
+.submenu {
+  background-color: var(--color-negro);
+  color: var(--color-amarillo);
+  font-family: var(--font-bold);
+  padding: 0.5rem 1rem;
+}
+
+.submenu-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.submenu-list li.active {
+  color: var(--color-amarillo);
+}
+.submenu-list li {
+  color: var(--color-blanco);
+}
+
+/* =========================================
+   CONTENEDOR PRINCIPAL (EFECTO PAPEL)
+   ========================================= */
+.main-content {
+  padding: 2rem 1rem;
+  min-height: 70vh;
+}
+
+.paper-container {
+  background-color: var(--color-blanco);
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 80vh;
+  /* Simulación de borde rasgado con sombra */
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  position: relative;
+  padding: 2rem;
+}
+
+.paper-container.bg-yellow {
+  background-color: var(--color-amarillo);
+}
+
+/* =========================================
+   ESTILOS ESPECÍFICOS DE PÁGINAS
+   ========================================= */
+/* HOME */
+.home-hero {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+.home-hero img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* NUEVO (Llegó Manchas) */
+.nuevo-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.nuevo-title {
+  font-size: 3rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.price-circle {
+  background-color: var(--color-negro);
+  color: var(--color-blanco);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-bold);
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+/* GRID DE PRODUCTOS Y SALE */
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.product-card {
+  text-align: center;
+  position: relative;
+}
+
+.product-image-container {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.badge-sale {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: var(--color-verde);
+  color: var(--color-blanco);
+  padding: 0.2rem 0.5rem;
+  font-family: var(--font-bold);
+  font-size: 0.8rem;
+}
+
+.product-title {
+  font-family: var(--font-bold);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  color: var(--color-verde);
+  font-family: var(--font-bold);
+}
+
+.price.old {
+  color: var(--color-gris);
+  text-decoration: line-through;
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.sizes {
+  margin-top: 0.5rem;
+  font-family: var(--font-bold);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+}
+
+/* ACERCA DE CHATEA */
+.about-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.about-logo {
+  max-width: 300px;
+  margin: 0 auto 2rem auto;
+}
+.about-text {
+  font-family: var(--font-bold);
+  font-size: 1.1rem;
+}
+
+/* CONTACTO */
+.contact-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+.form-group label {
+  font-family: var(--font-bold);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+.form-group input, 
+.form-group textarea {
+  padding: 0.8rem;
+  border: 1px solid var(--color-gris);
+  font-family: var(--font-regular);
+}
+.btn-submit {
+  background-color: var(--color-amarillo);
+  color: var(--color-negro);
+  border: none;
+  padding: 1rem 2rem;
+  font-family: var(--font-bold);
+  cursor: pointer;
+  align-self: flex-end;
+  text-transform: uppercase;
+}
+.btn-submit:hover {
+  opacity: 0.8;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.main-footer {
+  background-color: var(--color-negro);
+  color: var(--color-blanco);
+  padding: 1rem;
+  text-align: center;
+}
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-bold);
+  font-size: 0.9rem;
+}
+
+/* =========================================
+   MEDIA QUERIES (TABLET Y DESKTOP)
+   ========================================= */
+@media (min-width: 768px) {
+  .topbar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem 2rem;
+  }
+  
+  .btn-hamburger {
+    display: none; /* Ocultar hamburguesa en escritorio */
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    width: auto;
+    padding: 0;
+    gap: 2rem;
+  }
+
+  .nav-menu li {
+    margin: 0;
+  }
+
+  .submenu-list {
+    gap: 3rem;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en escritorio */
+  }
+
+  .contact-layout {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .contact-graphic {
+    flex: 1;
+  }
+  
+  .contact-form {
+    flex: 1;
+    margin: 0;
+  }
+
+  .footer-info {
+    flex-direction: row;
+    gap: 3rem;
+  }
+}
